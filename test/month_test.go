@@ -1,9 +1,10 @@
-package vncalendar
+package vncalendar_test
 
 import (
 	"testing"
 	"time"
 
+	. "github.com/openhoangnc/vncalendar"
 	"github.com/stretchr/testify/assert"
 )
 

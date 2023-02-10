@@ -1,10 +1,12 @@
-package vncalendar
+package vncalendar_test
 
 import (
 	"testing"
 	"time"
 
 	"github.com/stretchr/testify/assert"
+
+	. "github.com/openhoangnc/vncalendar"
 )
 
 func TestFromSolarTime(t *testing.T) {
