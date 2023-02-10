@@ -4,15 +4,18 @@ import (
 	"math"
 )
 
+// SolarDate is a struct to store solar date
 type SolarDate struct {
 	Year, Month, Day int
 }
 
+// LunarDate is a struct to store lunar date
 type LunarDate struct {
 	Year, Month, Day int
 	Leap             bool
 }
 
+// jdFromDate convert solar date to julian day
 func jdFromDate(dd, mm, yyyy int) int {
 	var a, y, m, jd int
 	a = int((14 - mm) / 12)
@@ -25,6 +28,7 @@ func jdFromDate(dd, mm, yyyy int) int {
 	return jd
 }
 
+// jdToDate convert julian day to solar date
 func jdToDate(jd int) SolarDate {
 	var a, b, c, d, e, m, day, month, year int
 	date := SolarDate{}
@@ -129,6 +133,7 @@ func getLeapMonthOffset(a11, timeZoneOffset int) int {
 	return i - 1
 }
 
+// Solar2lunar convert solar date to lunar date
 func Solar2lunar(yyyy, mm, dd, timeZoneOffset int) LunarDate {
 	var k, dayNumber, monthStart, a11, b11, lunarDay, lunarMonth, lunarYear,
 		diff, leapMonthDiff int
@@ -177,6 +182,7 @@ func Solar2lunar(yyyy, mm, dd, timeZoneOffset int) LunarDate {
 	return res
 }
 
+// Lunar2solar convert lunar date to solar date
 func Lunar2solar(lunarYear, lunarMonth, lunarDay int, lunarLeap bool, timeZoneOffset int) SolarDate {
 	var k, a11, b11, off, leapOff, leapMonth, monthStart int
 
