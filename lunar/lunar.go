@@ -147,8 +147,8 @@ func getLeapMonthOffset(a11, timeZone float64) float64 {
 	return i - 1
 }
 
-/* Comvert solar date dd/mm/yyyy to the corresponding lunar date */
-func convertSolar2Lunar(dd, mm, yy, timeZone float64) (float64, float64, float64, float64) {
+/* Convert solar date dd/mm/yyyy to the corresponding lunar date */
+func ConvertSolar2Lunar(dd, mm, yy, timeZone float64) (float64, float64, float64, float64) {
 	var k, dayNumber, monthStart, a11, b11, lunarDay, lunarMonth, lunarYear, lunarLeap float64
 	dayNumber = jdFromDate(dd, mm, yy)
 	k = Floor((dayNumber - 2415021.076998695) / 29.530588853)
@@ -189,7 +189,7 @@ func convertSolar2Lunar(dd, mm, yy, timeZone float64) (float64, float64, float64
 }
 
 /* Convert a lunar date to the corresponding solar date */
-func convertLunar2Solar(lunarDay, lunarMonth, lunarYear, lunarLeap, timeZone float64) (float64, float64, float64) {
+func ConvertLunar2Solar(lunarDay, lunarMonth, lunarYear, lunarLeap, timeZone float64) (float64, float64, float64) {
 	var k, a11, b11, off, leapOff, leapMonth, monthStart float64
 	if lunarMonth < 11 {
 		a11 = getLunarMonth11(lunarYear-1, timeZone)
